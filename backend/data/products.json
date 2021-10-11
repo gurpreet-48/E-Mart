@@ -97,7 +97,12 @@
         "images" : [{
             "public_id" : "products/camera_ridc0i",
             "url" : "https://res.cloudinary.com/bookit/image/upload/v1606231283/products/camera_ridc0i.jpg"
-        }],
+        },
+        {
+            "public_id" : "products/camera_ridc1i",
+            "url" : "https://media.istockphoto.com/photos/city-cesis-latvia-republic-new-nikon-z6-mirrorless-camera-forest-and-picture-id1186153022?k=20&m=1186153022&s=612x612&w=0&h=G7qTAV1AC7wP3l36ALpH3H5H1kMpJS26R1L8cVyVzbQ="
+        }
+    ],
         "category" : "Cameras",
         "seller" : "Amazon",
         "stock" : 131,
@@ -112,7 +117,8 @@
         "images" : [{
             "public_id" : "products/macbook_o2cj2k",
             "url" : "https://res.cloudinary.com/bookit/image/upload/v1606231282/products/macbook_o2cj2k.jpg"
-        }],
+        }
+    ],
         "category" : "Laptops",
         "seller" : "Amazon",
         "stock" : 0,
