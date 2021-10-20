@@ -1,10 +1,10 @@
-import React,{Fragment, useEffect} from 'react'
+import React,{Fragment, useEffect, useState} from 'react'
 import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
 import {useAlert} from 'react-alert'
 import {useDispatch,useSelector}from 'react-redux'
 import { getProductDetails,clearErrors } from '../../actions/productActions'
-import {Carousel} from 'react-bootstrap'
+import {Carousel , Modal, Button} from 'react-bootstrap'
 
 const ProductDetails = ({ match}) => {
 
@@ -22,6 +22,10 @@ const ProductDetails = ({ match}) => {
         }
     },[dispatch,alert,error,match.params.id])
     
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
     return (
       <Fragment>
         <MetaData title={product.name} />
@@ -104,42 +108,24 @@ const ProductDetails = ({ match}) => {
                   Sold by: <strong>{product.seller}</strong>
                 </p>
 
-                <button
-                  id="review_btn"
-                  type="button"
-                  className="btn btn-primary mt-4"
-                  data-toggle="modal"
-                  data-target="#ratingModal"
-                >
-                  Submit Your Review
-                </button>
 
-                <div className="row mt-2 mb-5">
-                  <div className="rating w-50">
-                    <div
-                      className="modal fade"
-                      id="ratingModal"
-                      tabIndex="-1"
-                      role="dialog"
-                      aria-labelledby="ratingModalLabel"
-                      aria-hidden="true"
-                    >
-                      <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                          <div className="modal-header">
-                            <h5 className="modal-title" id="ratingModalLabel">
-                              Submit Review
-                            </h5>
-                            <button
-                              type="button"
-                              className="close"
-                              data-dismiss="modal"
-                              aria-label="Close"
-                            >
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div className="modal-body">
+                
+      <Button id="cart_btn" variant="primary" onClick={handleShow}>
+        Submit your review
+      </Button>
+
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+        className="row mt-2 mb-5 "
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Submit Review</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+                            <div className="modal-body">
                             <ul className="stars">
                               <li className="star">
                                 <i className="fa fa-star"></i>
@@ -164,19 +150,16 @@ const ProductDetails = ({ match}) => {
                               className="form-control mt-3"
                             ></textarea>
 
-                            <button
-                              className="btn my-3 float-right review-btn px-4 text-white"
-                              data-dismiss="modal"
-                              aria-label="Close"
-                            >
-                              Submit
-                            </button>
+                            
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button  className="btn my-3 float-right review-btn px-4 text-white" data-dismiss="modal"
+                              aria-label="Close" id="review_btn" onClick={handleClose}>
+             Submit
+          </Button>
+        </Modal.Footer>
+      </Modal>
               </div>
             </div>
           </Fragment>
