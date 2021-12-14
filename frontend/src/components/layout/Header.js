@@ -3,6 +3,7 @@ import {Route,Link} from 'react-router-dom'
 import Search from './Search'
 import { useDispatch, useSelector } from 'react-redux'
 import {useAlert} from 'react-alert'
+import {logout} from '../../actions/userActions'
 
 import '../../App.css'
 
@@ -12,6 +13,11 @@ const Header = () => {
         const dispatch = useDispatch();
 
         const {user, loading} = useSelector(state => state.auth)
+
+        const logoutHandler =() => {
+            dispatch(logout());
+            alert.success('Logged out successfully')
+        }
 
   return (
     //just a wrapper
@@ -36,8 +42,6 @@ const Header = () => {
                 </Link>
 
                 {user ? (
-
-                        
                         <div className="ml-4 dropdown d-inline">
                             <Link to="#!" className="btn dropdown-toggle text-white mr-4" type="button" id="dropDownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
@@ -52,7 +56,15 @@ const Header = () => {
                             </Link>
 
                             <div className="dropdown-menu" aria-labelledby="dropDownMenuButton">
-                                <Link className="dropdown-item text-danger" to="/">
+
+                                {user && user.role !== 'admin' ? (
+                                    <Link className="dropdown-item" to="/orders/me">Orders</Link>
+                                ):(
+                                    <Link className="dropdown-item" to="/dashboard">Dashboard</Link> 
+                                )}
+                                <Link className="dropdown-item" to="/me">Profile</Link>
+                        
+                                <Link className="dropdown-item text-danger" to="/" onClick={logoutHandler }>
                                     Logout
                                 </Link>
 
