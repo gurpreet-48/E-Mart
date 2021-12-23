@@ -6,7 +6,8 @@ import MetaData from '../layout/MetaData'
 import {Link} from 'react-router-dom'
 import {login,clearErrors} from '../../actions/userActions'
 
-const Login = ({history}) => {
+const Login = ({history, location}) => {
+
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
     const alert = useAlert();
@@ -14,10 +15,12 @@ const Login = ({history}) => {
 
     const {isAuthenticated, error, loading} = useSelector(state => state.auth);
 
+    const redirect = location.search ? location.search.split('=')[1] :'/'
+
     useEffect(()=>{
 
         if(isAuthenticated){
-            history.push('/')
+            history.push(redirect)
         }
 
        if(error){
