@@ -27,14 +27,14 @@ const Shipping = ({history}) => {
         e.preventDefault();
         
         dispatch(saveShippingInfo({address, city, phoneNo, postalCode, country}))
-        history.push('/confirm')
+        history.push('/order/confirm')
     }
 
     return (
         <Fragment>
             <MetaData title={'Shipping Info'}/>
 
-            <CheckoutSteps shipping />
+            <CheckoutSteps shipping/>
             
             <div className="row wrapper">
                 <div className="col-10 col-lg-5">
