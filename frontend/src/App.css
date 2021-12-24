@@ -621,3 +621,41 @@ ul.CTAs a {
   font-size: 0.8rem;
   color: grey;
 }
+
+
+
+#pay_btn:hover {
+  opacity: 0.9
+}
+#pay_btn:focus {
+  opacity: 0.8
+}
+#pay_btn {
+  transition: all 0.5s;
+
+}
+
+#pay_btn #sexy_btn {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#pay_btn #sexy_btn:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#pay_btn:hover #sexy_btn {
+  padding-right: 25px;
+}
+
+#pay_btn:hover #sexy_btn:after {
+  opacity: 1;
+  right: 0;
+}
