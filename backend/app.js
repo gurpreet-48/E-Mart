@@ -16,6 +16,7 @@ app.use(cookieParser())
 app.use(fileUpload());
 
 
+
 // import all routes
 const products = require('./routes/product');
 const auth = require('./routes/auth');

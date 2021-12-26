@@ -88,9 +88,7 @@ const productSchema = new mongoose.Schema({
         comment: {
             type:String,
             default:""
-        },
-        
-
+        }
     }],
 
     user: {
