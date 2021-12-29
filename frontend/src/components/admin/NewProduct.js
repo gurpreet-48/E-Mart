@@ -17,7 +17,7 @@ const NewProduct = ({ history }) => {
     const [stock, setStock] = useState(0);
     const [seller, setSeller] = useState('');
     const [images, setImages] = useState([]);
-    const [imagesPreview, setImagesPreview] = useState([]);
+    const [imagesPreview, setImagesPreview] = useState([])
 
     const categories = [
         'Electronics',
