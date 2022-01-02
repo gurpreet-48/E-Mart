@@ -86,7 +86,7 @@ const UpdateProduct = ({ match, history }) => {
         formData.set('price', price);
         formData.set('description', description);
         formData.set('category', category);
-        formData.set('stock', stock);
+        formData.set('stocks', stock);
         formData.set('seller', seller);
 
         images.forEach(image => {

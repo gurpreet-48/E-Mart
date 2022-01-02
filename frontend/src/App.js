@@ -32,6 +32,8 @@ import Dashboard from './components/admin/Dashboard'
 import ProductsList from './components/admin/ProductsList'
 import NewProduct from './components/admin/NewProduct'
 import UpdateProduct from './components/admin/UpdateProduct'
+import OrdersList from './components/admin/OrdersList'
+import ProcessOrder from './components/admin/ProcessOrder'
 
 import ProtectedRoute from './components/route/ProtectedRoute'
 
@@ -100,6 +102,8 @@ const {user,isAuthenticated,loading} = useSelector(state => state.auth)
       <ProtectedRoute path="/admin/products" isAdmin={true} component={ProductsList} exact />
       <ProtectedRoute path="/admin/product" isAdmin={true} component={NewProduct} exact />
       <ProtectedRoute path="/admin/product/:id" isAdmin={true} component={UpdateProduct} exact />
+      <ProtectedRoute path="/admin/orders" isAdmin={true} component={OrdersList} exact />
+      <ProtectedRoute path="/admin/order/:id" isAdmin={true} component={ProcessOrder} exact />
          
       
       {!loading && (!isAuthenticated || user.role !== 'admin') && (
