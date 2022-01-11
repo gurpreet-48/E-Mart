@@ -6,7 +6,6 @@ import { createOrder,clearErrors} from '../../actions/orderActions'
 
 import { useAlert } from 'react-alert'
 import {useDispatch,useSelector}from 'react-redux'
-import {saveShippingInfo} from '../../actions/cartActions'
 
 import { useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement} from '@stripe/react-stripe-js'
 

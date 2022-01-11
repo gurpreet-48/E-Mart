@@ -7,6 +7,9 @@ import {
     ADMIN_PRODUCTS_REQUEST,
     ADMIN_PRODUCTS_SUCCESS,
     ADMIN_PRODUCTS_FAIL,
+    SELLER_PRODUCTS_REQUEST,
+    SELLER_PRODUCTS_SUCCESS,
+    SELLER_PRODUCTS_FAIL,
     NEW_PRODUCT_REQUEST,
     NEW_PRODUCT_SUCCESS,
     NEW_PRODUCT_FAIL,
@@ -195,6 +198,27 @@ export const getAdminProducts = () => async (dispatch) => {
             payload: error.response.data.message
         })
     }  
+}
+
+//Get currently logged in seller products
+export const getSellerProducts = () => async (dispatch) => {
+    try {
+
+        dispatch({ type: SELLER_PRODUCTS_REQUEST });
+
+        const { data } = await axios.get('/api/v1/seller/products')
+
+        dispatch({
+            type: SELLER_PRODUCTS_SUCCESS,
+            payload: data.products
+        })
+
+    } catch (error) {
+        dispatch({
+            type: SELLER_PRODUCTS_FAIL,
+            payload: error.response.data.message
+        })
+    }
 }
 
 // Get product reviews

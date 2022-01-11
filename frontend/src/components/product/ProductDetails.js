@@ -4,7 +4,7 @@ import MetaData from '../layout/MetaData'
 import {useAlert} from 'react-alert'
 import {useDispatch,useSelector}from 'react-redux'
 import { getProductDetails,newReview, clearErrors } from '../../actions/productActions'
-import {Carousel , Modal, Button} from 'react-bootstrap'
+import {Carousel} from 'react-bootstrap'
 import {addItemToCart} from '../../actions/cartActions'
 import {
   NEW_REVIEW_RESET

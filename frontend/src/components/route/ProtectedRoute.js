@@ -17,7 +17,7 @@ const {isAuthenticated, loading, user} = useSelector(state => state.auth)
                             return <Redirect to ='/login'/>
                         }
 
-                        if(isAdmin === true && user.role !=='admin'){
+                        if(isAdmin === true && user.role !=='admin' && user.role !=='seller'){
                             return <Redirect to="/" />
                         }
 

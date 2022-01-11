@@ -1,8 +1,6 @@
 import React, {Fragment} from 'react'
 import {Link} from 'react-router-dom'
-import Loader from '../layout/Loader'
 import MetaData from '../layout/MetaData'
-import {useAlert} from 'react-alert'
 import {useDispatch,useSelector}from 'react-redux'
 import {addItemToCart,removeItemFromCart} from '../../actions/cartActions'
 

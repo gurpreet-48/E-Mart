@@ -1,14 +1,14 @@
 import React, { Fragment, useState, useEffect } from 'react'
 
 import MetaData from '../layout/MetaData'
-import Sidebar from './Sidebar'
+import Sidebar from './SellerSidebar'
 
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { newProduct, clearErrors } from '../../actions/productActions'
 import { NEW_PRODUCT_RESET } from '../../constants/productConstants'
 
-const NewProduct = ({ history }) => {
+const SellerNewProduct = ({history}) => {
 
     const [name, setName] = useState('');
     const [price, setPrice] = useState(0);
@@ -48,7 +48,7 @@ const NewProduct = ({ history }) => {
         }
 
         if (success) {
-            history.push('/admin/products');
+            history.push('/seller/products');
             alert.success('Product created successfully');
             dispatch({ type: NEW_PRODUCT_RESET })
         }
@@ -210,4 +210,4 @@ const NewProduct = ({ history }) => {
     )
 }
 
-export default NewProduct
+export default SellerNewProduct

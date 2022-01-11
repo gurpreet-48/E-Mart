@@ -16,7 +16,7 @@ const Register = ({ history }) => {
 
     const { name, email, password } = user;
 
-    const [avatar, setAvatar] = useState('')
+    const [avatar, setAvatar] = useState('https://res.cloudinary.com/dpawc0lia/image/upload/v1641928303/avatars/default_avatar_x2jjaa.png')
     const [avatarPreview, setAvatarPreview] = useState('/images/default_avatar.png')
 
     const alert = useAlert();
@@ -44,6 +44,7 @@ const Register = ({ history }) => {
         formData.set('name', name);
         formData.set('email', email);
         formData.set('password', password);
+        
         formData.set('avatar', avatar);
 
         dispatch(register(formData))
@@ -132,7 +133,7 @@ const Register = ({ history }) => {
                                         name='avatar'
                                         className='custom-file-input'
                                         id='customFile'
-                                        accept="iamges/*"
+                                        accept="image/*"
                                         onChange={onChange}
                                     />
                                     <label className='custom-file-label' htmlFor='customFile'>

@@ -38,6 +38,12 @@ import UsersList from './components/admin/UsersList'
 import UpdateUser from './components/admin/UpdateUser'
 import ProductReviews from './components/admin/ProductReviews'
 
+//Seller imports
+import SellerDashboard from './components/seller/SellerDashboard'
+import SellerProductsList from './components/seller/SellerProductsList'
+import SellerNewProduct from './components/seller/SellerNewProduct'
+import SellerUpdateProduct from './components/seller/SellerUpdateProduct'
+
 import ProtectedRoute from './components/route/ProtectedRoute'
 
 import {loadUser} from './actions/userActions'
@@ -110,9 +116,13 @@ const {user,isAuthenticated,loading} = useSelector(state => state.auth)
       <ProtectedRoute path="/admin/users" isAdmin={true} component={UsersList} exact />
       <ProtectedRoute path="/admin/user/:id" isAdmin={true} component={UpdateUser} exact />
       <ProtectedRoute path="/admin/reviews" isAdmin={true} component={ProductReviews} exact />
-         
+
+      <ProtectedRoute path="/sellerdashboard" isAdmin={true} component={SellerDashboard} exact />
+      <ProtectedRoute path="/seller/products" isAdmin={true} component={SellerProductsList} exact />
+      <ProtectedRoute path="/seller/product" isAdmin={true} component={SellerNewProduct} exact />
+      <ProtectedRoute path="/seller/product/:id" isAdmin={true} component={SellerUpdateProduct} exact />  
       
-      {!loading && (!isAuthenticated || user.role !== 'admin') && (
+      {!loading && (!isAuthenticated || (user.role !== 'admin' && user.role !=='seller')) && (
           <Footer />
         )}
       
