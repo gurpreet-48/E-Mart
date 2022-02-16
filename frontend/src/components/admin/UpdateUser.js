@@ -106,9 +106,9 @@ const UpdateUser = ({history,match}) => {
                                         value={role}
                                         onChange={(e) => setRole(e.target.value)}
                                     >
-                                        <option value="user">user</option>
-                                        <option value="admin">admin</option>
-                                        <option value="seller">seller</option>
+                                        <option key= "user" value="user">user</option>
+                                        <option key="admin" value="admin">admin</option>
+                                        <option key="seller" value="seller">seller</option>
                                     </select>
                                 </div>
 

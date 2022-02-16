@@ -20,7 +20,6 @@ const NewProduct = ({ history }) => {
     const [imagesPreview, setImagesPreview] = useState([])
 
     const categories = [
-        'Choose the category from below :-',
         'Electronics',
         'Cameras',
         'Laptops',
@@ -58,6 +57,11 @@ const NewProduct = ({ history }) => {
     const submitHandler = (e) => {
         e.preventDefault();
 
+        if(!name || !price|| !description || !category || !stock || !seller ){
+            alert.error('Field(s) are empty')
+            return 
+        }
+        
         const formData = new FormData();
         formData.set('name', name);
         formData.set('price', price);
@@ -136,14 +140,18 @@ const NewProduct = ({ history }) => {
                                     <textarea className="form-control" id="description_field" rows="8" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                                 </div>
 
+                        
                                 <div className="form-group">
                                     <label htmlFor="category_field">Category</label>
                                     <select className="form-control" id="category_field" value={category} onChange={(e) => setCategory(e.target.value)}>
+                                    <option value="" disabled selected>Select the Category</option>
                                         {categories.map(category => (
                                             <option key={category} value={category} >{category}</option>
                                         ))}
 
                                     </select>
+
+                                                
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="stock_field">Stock</label>

@@ -125,7 +125,7 @@ const ProcessOrder = ({ match }) => {
                                             value={status}
                                             onChange={(e) => setStatus(e.target.value)}
                                         >
-                                            <option value="Processing">Processing</option>
+                                            <option value="Ordered">Ordered</option>
                                             <option value="Shipped">Shipped</option>
                                             <option value="Delivered">Delivered</option>
                                         </select>

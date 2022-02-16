@@ -22,7 +22,6 @@ const SellerUpdateProduct = ({ match, history }) => {
     const [imagesPreview, setImagesPreview] = useState([])
 
     const categories = [
-        'Choose the category from below :-',
         'Electronics',
         'Cameras',
         'Laptops',
